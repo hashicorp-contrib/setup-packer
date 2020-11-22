@@ -7,9 +7,8 @@ Set up and cache the Packer CLI.
 
 ## Roadmap
 
-This action aims to provide an OS-neutral interface, and so will not add
-features that only work on one operating system or manipulate the Packer CLI
-itself.
+This action aims to provide an OS-neutral interface. And will not add features
+that only work on one operating system or manipulate the Packer CLI itself.
 
 ## Usage
 
