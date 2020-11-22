@@ -43,7 +43,7 @@ jobs:
         with:
           packer-version: 1.6.5
 
-      - name: Generate a set of artifacts
+      - name: Build image from template
         run: packer build TEMPLATE
 ```
 
