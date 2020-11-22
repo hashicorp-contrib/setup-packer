@@ -62,6 +62,3 @@ jobs:
 
       - name: Use latest Packer
         uses: ./
-
-      - name: Print Packer version
-        run: packer --version
