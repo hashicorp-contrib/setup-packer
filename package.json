@@ -1,0 +1,8 @@
+{
+  "name": "setup-packer",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Set up Packer CLI in your GitHub Actions workflow",
+  "author": "Sora Morimoto <sora@morimoto.io>",
+  "license": "ISC"
+}
