@@ -1,6 +1,6 @@
 {
   "name": "setup-packer",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Sora Morimoto <sora@morimoto.io>",
   "private": true,
   "scripts": {
