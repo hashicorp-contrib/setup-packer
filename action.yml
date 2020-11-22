@@ -1,0 +1,18 @@
+name: Setup Packer
+description: Set up Packer CLI in your GitHub Actions workflow
+author: Sora Morimoto
+branding:
+  icon: package
+  color: blue
+inputs:
+  github-token:
+    description:
+      The API token for the action to get the latest release of Packer from
+      GitHub API
+    default: ${{ github.token }}
+  packer-version:
+    description: The version to use
+    default: latest
+runs:
+  using: node12
+  main: dist/index.js
