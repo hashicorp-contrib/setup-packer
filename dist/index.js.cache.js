@@ -9493,15 +9493,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
+var core = __webpack_require__(2186);
 var installer_1 = __webpack_require__(2574);
 function run() {
     return __awaiter(this, void 0, void 0, function () {
+        var error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, installer_1.acquirePacker()];
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, installer_1.acquirePacker()];
                 case 1:
                     _a.sent();
-                    return [2 /*return*/];
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_1 = _a.sent();
+                    core.setFailed(error_1.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
@@ -9558,27 +9567,36 @@ var core = __webpack_require__(2186);
 var github = __webpack_require__(5438);
 var io = __webpack_require__(7436);
 var tc = __webpack_require__(7784);
+var process = __webpack_require__(1765);
 var constants_1 = __webpack_require__(9042);
 function getPlatform() {
     switch (process.platform) {
-        case "linux":
-            return "linux";
         case "darwin":
             return "darwin";
+        case "freebsd":
+            return "freebsd";
+        case "linux":
+            return "linux";
+        case "openbsd":
+            return "openbsd";
         case "win32":
             return "windows";
         default:
-            core.error("Unsupported platform: " + process.platform);
-            return;
+            throw new Error("Unsupported platform: " + process.platform);
     }
 }
 function getArch() {
     switch (process.arch) {
+        case "arm":
+            return "arm";
+        case "arm64":
+            return "arm64";
+        case "x32":
+            return "386";
         case "x64":
             return "amd64";
         default:
-            core.error("Unsupported architecture: " + process.arch);
-            return;
+            throw new Error("Unsupported architecture: " + process.arch);
     }
 }
 function getVariant() {
@@ -9606,18 +9624,18 @@ function getLatestVersion() {
         });
     });
 }
-function getVersion() {
+function getVersion(version) {
     return __awaiter(this, void 0, void 0, function () {
         var latestVersion;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    if (!(constants_1.PACKER_VERSION === "latest")) return [3 /*break*/, 2];
+                    if (!(version === "latest")) return [3 /*break*/, 2];
                     return [4 /*yield*/, getLatestVersion()];
                 case 1:
                     latestVersion = _a.sent();
                     return [2 /*return*/, latestVersion];
-                case 2: return [2 /*return*/, constants_1.PACKER_VERSION];
+                case 2: return [2 /*return*/, version];
             }
         });
     });
@@ -9631,7 +9649,7 @@ function acquirePacker() {
         var version, variant, downloadUrl, cachedPath, downloadedPath, extractedPath, cachedPath_1, packerPath;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, getVersion()];
+                case 0: return [4 /*yield*/, getVersion(constants_1.PACKER_VERSION)];
                 case 1:
                     version = _a.sent();
                     variant = getVariant();
@@ -9753,6 +9771,14 @@ module.exports = require("os");;
 
 "use strict";
 module.exports = require("path");;
+
+/***/ }),
+
+/***/ 1765:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("process");;
 
 /***/ }),
 
