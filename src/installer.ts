@@ -2,12 +2,13 @@ import * as core from "@actions/core";
 import * as github from "@actions/github";
 import * as io from "@actions/io";
 import * as tc from "@actions/tool-cache";
-import * as process from "process";
+import * as os from "os";
 
 import { GITHUB_TOKEN, PACKER_VERSION } from "./constants";
 
 function getPlatform() {
-  switch (process.platform) {
+  const platform = os.platform();
+  switch (platform) {
     case "darwin":
       return "darwin";
     case "freebsd":
@@ -19,12 +20,13 @@ function getPlatform() {
     case "win32":
       return "windows";
     default:
-      throw new Error(`Unsupported platform: ${process.platform}`);
+      throw new Error(`Unsupported platform: ${platform}`);
   }
 }
 
 function getArch() {
-  switch (process.arch) {
+  const arch = os.arch();
+  switch (arch) {
     case "arm":
       return "arm";
     case "arm64":
@@ -34,7 +36,7 @@ function getArch() {
     case "x64":
       return "amd64";
     default:
-      throw new Error(`Unsupported architecture: ${process.arch}`);
+      throw new Error(`Unsupported architecture: ${arch}`);
   }
 }
 
@@ -49,7 +51,7 @@ async function getLatestVersion() {
   const octokit = github.getOctokit(GITHUB_TOKEN);
   const {
     data: { tag_name: _version },
-  } = await octokit.repos.getLatestRelease({
+  } = await octokit.rest.repos.getLatestRelease({
     owner: "hashicorp",
     repo: "packer",
   });
