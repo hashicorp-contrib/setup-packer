@@ -1,7 +1,8 @@
 # setup-packer
 
-[![Main workflow](https://github.com/hashicorp-contrib/setup-packer/workflows/Main%20workflow/badge.svg?branch=master)](https://github.com/hashicorp-contrib/setup-packer/actions)
-[![CodeQL](https://github.com/hashicorp-contrib/setup-packer/workflows/CodeQL/badge.svg?branch=master)](https://github.com/hashicorp-contrib/setup-packer/actions)
+[![Test](https://github.com/hashicorp-contrib/setup-packer/actions/workflows/test.yml/badge.svg)](https://github.com/hashicorp-contrib/setup-packer/actions)
+[![Hygiene](https://github.com/hashicorp-contrib/setup-packer/actions/workflows/hygiene.yml/badge.svg)](https://github.com/hashicorp-contrib/setup-packer/actions)
+[![CodeQL](https://github.com/hashicorp-contrib/setup-packer/actions/workflows/codeql.yml/badge.svg)](https://github.com/hashicorp-contrib/setup-packer/actions)
 
 Set up and cache the Packer CLI.
 

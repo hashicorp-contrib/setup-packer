@@ -1,20 +1,12 @@
-name: Main workflow
+name: Hygiene
 
 on:
   - pull_request
   - push
 
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - macos-latest
-          - ubuntu-latest
-          - windows-latest
-
-    runs-on: ${{ matrix.os }}
+  hygiene:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -24,18 +16,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 12.x
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Retrieve yarn cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: v1-${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            v1-${{ runner.os }}-yarn-
 
       - name: Install npm packages
         run: yarn --frozen-lockfile
@@ -54,12 +34,8 @@ jobs:
         shell: bash
         run: |
           yarn build
-          git update-index --assume-unchanged dist/index.js.cache
           if [ "$(git status dist --porcelain | wc -l)" -gt "0" ]; then
             echo "Detected uncommitted changes after build. See status below:"
             git diff
             exit 1
           fi
-
-      - name: Use latest Packer
-        uses: ./
