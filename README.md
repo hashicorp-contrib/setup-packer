@@ -35,12 +35,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Use latest Packer
-        uses: hashicorp-contrib/setup-packer@v1
+        uses: hashicorp-contrib/setup-packer@v2
 
       # or
 
       - name: Use latest Packer
-        uses: hashicorp-contrib/setup-packer@v1
+        uses: hashicorp-contrib/setup-packer@v2
         with:
           packer-version: 1.6.5
 
@@ -55,23 +55,23 @@ specify the version of the action _itself_.
 
 ```yml
 - name: Use latest Packer
-  uses: hashicorp-contrib/setup-packer@v1
+  uses: hashicorp-contrib/setup-packer@v2
   #                                   ^^^
 ```
 
 We recommend that you include the version of the action. We adhere to
 [semantic versioning](https://semver.org), it's safe to use the major version
-(`v1`) in your workflow. If you use the master branch, this could break your
+(`v2`) in your workflow. If you use the master branch, this could break your
 workflow when we publish a breaking update and increase the major version.
 
 ```yml
 steps:
   # Reference the major version of a release (most recommended)
-  - uses: hashicorp-contrib/setup-packer@v1
+  - uses: hashicorp-contrib/setup-packer@v2
   # Reference a specific commit (most strict)
-  - uses: hashicorp-contrib/setup-packer@b9dd0b6
+  - uses: hashicorp-contrib/setup-packer@ee5bed6
   # Reference a semver version of a release (not recommended)
-  - uses: hashicorp-contrib/setup-packer@v1.0.0
+  - uses: hashicorp-contrib/setup-packer@v2.0.0
   # Reference a branch (most dangerous)
   - uses: hashicorp-contrib/setup-packer@master
 ```
