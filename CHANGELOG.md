@@ -8,10 +8,18 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.0.0] - 2022-08-30
+
+### Changed
+
+- Update default runtime to node16.
+
 ## [1.0.0] - 2020-11-23
 
 - Initial release
 
 [unreleased]:
-  https://github.com/hashicorp-contrib/setup-packer/compare/v1.0.0...HEAD
+  https://github.com/hashicorp-contrib/setup-packer/compare/v2.0.0...HEAD
+[2.0.0]:
+  https://github.com/hashicorp-contrib/setup-packer/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/hashicorp-contrib/setup-packer/releases/tag/v1.0.0
