@@ -1,0 +1,88 @@
+name: Builds, tests & co
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  hygiene:
+    name: Hygiene
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install npm packages
+        run: yarn install --immutable
+
+      - name: Check formatting
+        run: yarn fmt:check
+
+      - name: Check lint
+        run: yarn lint
+
+      - name: Check type
+        run: yarn typecheck
+
+  test:
+    name: Test
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Use latest Packer
+        uses: ./
+
+  build-and-push:
+    name: Build and Push
+
+    if: ${{ github.event_name == 'pull_request' }}
+
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install npm packages
+        run: yarn install --immutable
+
+      - name: Run build
+        run: yarn build
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: yarn build
