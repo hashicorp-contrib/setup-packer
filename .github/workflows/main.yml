@@ -8,6 +8,8 @@ jobs:
   hygiene:
     name: Hygiene
 
+    if: ${{ github.actor != 'renovate[bot]' }}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -35,6 +37,8 @@ jobs:
 
   test:
     name: Test
+
+    if: ${{ github.actor != 'renovate[bot]' }}
 
     strategy:
       fail-fast: false
