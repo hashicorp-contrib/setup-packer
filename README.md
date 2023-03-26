@@ -1,7 +1,6 @@
 # setup-packer
 
 [![Builds, tests & co](https://github.com/hashicorp-contrib/setup-packer/actions/workflows/main.yml/badge.svg)](https://github.com/hashicorp-contrib/setup-packer/actions)
-[![CodeQL](https://github.com/hashicorp-contrib/setup-packer/actions/workflows/codeql.yml/badge.svg)](https://github.com/hashicorp-contrib/setup-packer/actions)
 
 Set up and cache the Packer CLI.
 
