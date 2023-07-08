@@ -85,7 +85,7 @@ export async function acquirePacker(): Promise<void> {
       extractedPath,
       "packer",
       version,
-      variant
+      variant,
     );
     core.addPath(cachedPath);
   } else {
