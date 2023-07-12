@@ -16891,14 +16891,14 @@ __nccwpck_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
 var core = __nccwpck_require__(2186);
+;// CONCATENATED MODULE: external "node:os"
+const external_node_os_namespaceObject = require("node:os");
 // EXTERNAL MODULE: ./node_modules/@actions/github/lib/github.js
 var github = __nccwpck_require__(5438);
 // EXTERNAL MODULE: ./node_modules/@actions/io/lib/io.js
 var io = __nccwpck_require__(7436);
 // EXTERNAL MODULE: ./node_modules/@actions/tool-cache/lib/tool-cache.js
 var tool_cache = __nccwpck_require__(7784);
-// EXTERNAL MODULE: external "os"
-var external_os_ = __nccwpck_require__(2037);
 ;// CONCATENATED MODULE: ./src/constants.ts
 
 const GITHUB_TOKEN = core.getInput("github-token");
@@ -16912,41 +16912,52 @@ const PACKER_VERSION = core.getInput("packer-version");
 
 
 function getPlatform() {
-    const platform = external_os_.platform();
+    const platform = external_node_os_namespaceObject.platform();
     switch (platform) {
-        case "darwin":
+        case "darwin": {
             return "darwin";
-        case "freebsd":
+        }
+        case "freebsd": {
             return "freebsd";
-        case "linux":
+        }
+        case "linux": {
             return "linux";
-        case "openbsd":
+        }
+        case "openbsd": {
             return "openbsd";
-        case "win32":
+        }
+        case "win32": {
             return "windows";
-        default:
+        }
+        default: {
             throw new Error(`Unsupported platform: ${platform}`);
+        }
     }
 }
-function getArch() {
-    const arch = external_os_.arch();
+function getArchitecture() {
+    const arch = external_node_os_namespaceObject.arch();
     switch (arch) {
-        case "arm":
+        case "arm": {
             return "arm";
-        case "arm64":
+        }
+        case "arm64": {
             return "arm64";
-        case "x32":
+        }
+        case "x32": {
             return "386";
-        case "x64":
+        }
+        case "x64": {
             return "amd64";
-        default:
+        }
+        default: {
             throw new Error(`Unsupported architecture: ${arch}`);
+        }
     }
 }
 function getVariant() {
     const platform = getPlatform();
-    const arch = getArch();
-    const variant = `${platform}_${arch}`;
+    const architecture = getArchitecture();
+    const variant = `${platform}_${architecture}`;
     return variant;
 }
 async function getLatestVersion() {
@@ -17004,6 +17015,7 @@ async function run() {
         }
     }
 }
+// eslint-disable-next-line unicorn/prefer-top-level-await
 void run();
 
 })();

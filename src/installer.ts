@@ -1,49 +1,61 @@
+import * as os from "node:os";
+
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import * as io from "@actions/io";
 import * as tc from "@actions/tool-cache";
-import * as os from "os";
 
 import { GITHUB_TOKEN, PACKER_VERSION } from "./constants";
 
 function getPlatform() {
   const platform = os.platform();
   switch (platform) {
-    case "darwin":
+    case "darwin": {
       return "darwin";
-    case "freebsd":
+    }
+    case "freebsd": {
       return "freebsd";
-    case "linux":
+    }
+    case "linux": {
       return "linux";
-    case "openbsd":
+    }
+    case "openbsd": {
       return "openbsd";
-    case "win32":
+    }
+    case "win32": {
       return "windows";
-    default:
+    }
+    default: {
       throw new Error(`Unsupported platform: ${platform}`);
+    }
   }
 }
 
-function getArch() {
+function getArchitecture() {
   const arch = os.arch();
   switch (arch) {
-    case "arm":
+    case "arm": {
       return "arm";
-    case "arm64":
+    }
+    case "arm64": {
       return "arm64";
-    case "x32":
+    }
+    case "x32": {
       return "386";
-    case "x64":
+    }
+    case "x64": {
       return "amd64";
-    default:
+    }
+    default: {
       throw new Error(`Unsupported architecture: ${arch}`);
+    }
   }
 }
 
 function getVariant() {
   const platform = getPlatform();
-  const arch = getArch();
-  const variant = `${platform}_${arch}`;
+  const architecture = getArchitecture();
+  const variant = `${platform}_${architecture}`;
   return variant;
 }
 
