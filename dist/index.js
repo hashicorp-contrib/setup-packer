@@ -16625,6 +16625,221 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 9042:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PACKER_VERSION = exports.GITHUB_TOKEN = void 0;
+const core = __importStar(__nccwpck_require__(2186));
+exports.GITHUB_TOKEN = core.getInput("github-token");
+exports.PACKER_VERSION = core.getInput("packer-version");
+
+
+/***/ }),
+
+/***/ 6144:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const core = __importStar(__nccwpck_require__(2186));
+const installer_1 = __nccwpck_require__(2574);
+async function run() {
+    try {
+        await (0, installer_1.acquirePacker)();
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            core.setFailed(error.message);
+        }
+    }
+}
+// eslint-disable-next-line unicorn/prefer-top-level-await
+void run();
+
+
+/***/ }),
+
+/***/ 2574:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.acquirePacker = void 0;
+const os = __importStar(__nccwpck_require__(612));
+const core = __importStar(__nccwpck_require__(2186));
+const github = __importStar(__nccwpck_require__(5438));
+const io = __importStar(__nccwpck_require__(7436));
+const tc = __importStar(__nccwpck_require__(7784));
+const constants_1 = __nccwpck_require__(9042);
+function getPlatform() {
+    const platform = os.platform();
+    switch (platform) {
+        case "darwin": {
+            return "darwin";
+        }
+        case "freebsd": {
+            return "freebsd";
+        }
+        case "linux": {
+            return "linux";
+        }
+        case "openbsd": {
+            return "openbsd";
+        }
+        case "win32": {
+            return "windows";
+        }
+        default: {
+            throw new Error(`Unsupported platform: ${platform}`);
+        }
+    }
+}
+function getArchitecture() {
+    const arch = os.arch();
+    switch (arch) {
+        case "arm": {
+            return "arm";
+        }
+        case "arm64": {
+            return "arm64";
+        }
+        case "x32": {
+            return "386";
+        }
+        case "x64": {
+            return "amd64";
+        }
+        default: {
+            throw new Error(`Unsupported architecture: ${arch}`);
+        }
+    }
+}
+function getVariant() {
+    const platform = getPlatform();
+    const architecture = getArchitecture();
+    const variant = `${platform}_${architecture}`;
+    return variant;
+}
+async function getLatestVersion() {
+    const octokit = github.getOctokit(constants_1.GITHUB_TOKEN);
+    const { data: { tag_name: _version }, } = await octokit.rest.repos.getLatestRelease({
+        owner: "hashicorp",
+        repo: "packer",
+    });
+    const version = _version.slice(1);
+    return version;
+}
+async function getVersion(version) {
+    if (version === "latest") {
+        const latestVersion = await getLatestVersion();
+        return latestVersion;
+    }
+    else {
+        return version;
+    }
+}
+function getDownloadUrl(version, variant) {
+    const downloadUrl = `https://releases.hashicorp.com/packer/${version}/packer_${version}_${variant}.zip`;
+    return downloadUrl;
+}
+async function acquirePacker() {
+    const version = await getVersion(constants_1.PACKER_VERSION);
+    const variant = getVariant();
+    const downloadUrl = getDownloadUrl(version, variant);
+    const cachedPath = tc.find("packer", version, variant);
+    if (cachedPath === "") {
+        const downloadedPath = await tc.downloadTool(downloadUrl);
+        const extractedPath = await tc.extractZip(downloadedPath);
+        const cachedPath = await tc.cacheDir(extractedPath, "packer", version, variant);
+        core.addPath(cachedPath);
+    }
+    else {
+        core.addPath(cachedPath);
+    }
+    const packerPath = await io.which("packer", true);
+    core.info(`Version: ${version}`);
+    core.info(`Variant: ${variant}`);
+    core.info(`Cache location: ${packerPath}`);
+}
+exports.acquirePacker = acquirePacker;
+
+
+/***/ }),
+
 /***/ 9491:
 /***/ ((module) => {
 
@@ -16694,6 +16909,14 @@ module.exports = require("https");
 
 "use strict";
 module.exports = require("net");
+
+/***/ }),
+
+/***/ 612:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:os");
 
 /***/ }),
 
@@ -16882,160 +17105,17 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nccwpck_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-// ESM COMPAT FLAG
-__nccwpck_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
-var core = __nccwpck_require__(2186);
-;// CONCATENATED MODULE: external "node:os"
-const external_node_os_namespaceObject = require("node:os");
-// EXTERNAL MODULE: ./node_modules/@actions/github/lib/github.js
-var github = __nccwpck_require__(5438);
-// EXTERNAL MODULE: ./node_modules/@actions/io/lib/io.js
-var io = __nccwpck_require__(7436);
-// EXTERNAL MODULE: ./node_modules/@actions/tool-cache/lib/tool-cache.js
-var tool_cache = __nccwpck_require__(7784);
-;// CONCATENATED MODULE: ./src/constants.ts
-
-const GITHUB_TOKEN = core.getInput("github-token");
-const PACKER_VERSION = core.getInput("packer-version");
-
-;// CONCATENATED MODULE: ./src/installer.ts
-
-
-
-
-
-
-function getPlatform() {
-    const platform = external_node_os_namespaceObject.platform();
-    switch (platform) {
-        case "darwin": {
-            return "darwin";
-        }
-        case "freebsd": {
-            return "freebsd";
-        }
-        case "linux": {
-            return "linux";
-        }
-        case "openbsd": {
-            return "openbsd";
-        }
-        case "win32": {
-            return "windows";
-        }
-        default: {
-            throw new Error(`Unsupported platform: ${platform}`);
-        }
-    }
-}
-function getArchitecture() {
-    const arch = external_node_os_namespaceObject.arch();
-    switch (arch) {
-        case "arm": {
-            return "arm";
-        }
-        case "arm64": {
-            return "arm64";
-        }
-        case "x32": {
-            return "386";
-        }
-        case "x64": {
-            return "amd64";
-        }
-        default: {
-            throw new Error(`Unsupported architecture: ${arch}`);
-        }
-    }
-}
-function getVariant() {
-    const platform = getPlatform();
-    const architecture = getArchitecture();
-    const variant = `${platform}_${architecture}`;
-    return variant;
-}
-async function getLatestVersion() {
-    const octokit = github.getOctokit(GITHUB_TOKEN);
-    const { data: { tag_name: _version }, } = await octokit.rest.repos.getLatestRelease({
-        owner: "hashicorp",
-        repo: "packer",
-    });
-    const version = _version.slice(1);
-    return version;
-}
-async function getVersion(version) {
-    if (version === "latest") {
-        const latestVersion = await getLatestVersion();
-        return latestVersion;
-    }
-    else {
-        return version;
-    }
-}
-function getDownloadUrl(version, variant) {
-    const downloadUrl = `https://releases.hashicorp.com/packer/${version}/packer_${version}_${variant}.zip`;
-    return downloadUrl;
-}
-async function acquirePacker() {
-    const version = await getVersion(PACKER_VERSION);
-    const variant = getVariant();
-    const downloadUrl = getDownloadUrl(version, variant);
-    const cachedPath = tool_cache.find("packer", version, variant);
-    if (cachedPath === "") {
-        const downloadedPath = await tool_cache.downloadTool(downloadUrl);
-        const extractedPath = await tool_cache.extractZip(downloadedPath);
-        const cachedPath = await tool_cache.cacheDir(extractedPath, "packer", version, variant);
-        core.addPath(cachedPath);
-    }
-    else {
-        core.addPath(cachedPath);
-    }
-    const packerPath = await io.which("packer", true);
-    core.info(`Version: ${version}`);
-    core.info(`Variant: ${variant}`);
-    core.info(`Cache location: ${packerPath}`);
-}
-
-;// CONCATENATED MODULE: ./src/index.ts
-
-
-async function run() {
-    try {
-        await acquirePacker();
-    }
-    catch (error) {
-        if (error instanceof Error) {
-            core.setFailed(error.message);
-        }
-    }
-}
-// eslint-disable-next-line unicorn/prefer-top-level-await
-void run();
-
-})();
-
-module.exports = __webpack_exports__;
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __nccwpck_require__(6144);
+/******/ 	module.exports = __webpack_exports__;
+/******/ 	
 /******/ })()
 ;
