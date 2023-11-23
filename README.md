@@ -29,16 +29,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout tree
+        uses: actions/checkout@v4
 
       - name: Use latest Packer
-        uses: hashicorp-contrib/setup-packer@v2
+        uses: hashicorp-contrib/setup-packer@v3
 
       # or
 
       - name: Use latest Packer
-        uses: hashicorp-contrib/setup-packer@v2
+        uses: hashicorp-contrib/setup-packer@v3
         with:
           packer-version: 1.6.5
 
@@ -53,7 +53,7 @@ specify the version of the action _itself_.
 
 ```yml
 - name: Use latest Packer
-  uses: hashicorp-contrib/setup-packer@v2
+  uses: hashicorp-contrib/setup-packer@v3
   #                                   ^^^
 ```
 
@@ -65,11 +65,11 @@ workflow when we publish a breaking update and increase the major version.
 ```yml
 steps:
   # Reference the major version of a release (most recommended)
-  - uses: hashicorp-contrib/setup-packer@v2
+  - uses: hashicorp-contrib/setup-packer@v3
   # Reference a specific commit (most strict)
-  - uses: hashicorp-contrib/setup-packer@ee5bed6
+  - uses: hashicorp-contrib/setup-packer@792b061
   # Reference a semver version of a release (not recommended)
-  - uses: hashicorp-contrib/setup-packer@v2.0.0
+  - uses: hashicorp-contrib/setup-packer@v3.0.0
   # Reference a branch (most dangerous)
   - uses: hashicorp-contrib/setup-packer@master
 ```
