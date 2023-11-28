@@ -75,9 +75,8 @@ async function getVersion(version: string) {
   if (version === "latest") {
     const latestVersion = await getLatestVersion();
     return latestVersion;
-  } else {
-    return version;
   }
+  return version;
 }
 
 function getDownloadUrl(version: string, variant: string) {
