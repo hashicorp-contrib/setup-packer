@@ -1,16 +1,16 @@
 {
   "name": "setup-packer",
   "version": "3.0.0",
-  "author": "Sora Morimoto <sora@morimoto.io>",
   "private": true,
+  "license": "ISC",
+  "author": "Sora Morimoto <sora@morimoto.io>",
   "scripts": {
+    "build": "ncc build src/index.ts --license=LICENSE.txt",
     "format": "biome format --write .",
     "format:check": "biome format .",
-    "typecheck": "tsc",
     "lint": "biome lint .",
-    "build": "ncc build src/index.ts --license=LICENSE.txt"
+    "type-check": "tsc"
   },
-  "license": "ISC",
   "dependencies": {
     "@actions/core": "1.10.1",
     "@actions/exec": "1.1.1",
