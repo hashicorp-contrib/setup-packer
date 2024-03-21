@@ -24,7 +24,7 @@
     "@tsconfig/node20": "20.1.2",
     "@tsconfig/strictest": "2.0.3",
     "@types/node": "20.11.30",
-    "typescript": "5.4.2"
+    "typescript": "5.4.3"
   },
   "packageManager": "yarn@4.1.1"
 }
