@@ -33162,7 +33162,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.acquirePacker = void 0;
+exports.acquirePacker = acquirePacker;
 const os = __importStar(__nccwpck_require__(612));
 const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
@@ -33257,7 +33257,6 @@ async function acquirePacker() {
     core.info(`Variant: ${variant}`);
     core.info(`Cache location: ${packerPath}`);
 }
-exports.acquirePacker = acquirePacker;
 
 
 /***/ }),
