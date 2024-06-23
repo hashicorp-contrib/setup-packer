@@ -23,7 +23,7 @@
     "@biomejs/biome": "1.8.2",
     "@tsconfig/node20": "20.1.4",
     "@tsconfig/strictest": "2.0.5",
-    "@types/node": "20.14.7",
+    "@types/node": "20.14.8",
     "typescript": "5.5.2"
   },
   "packageManager": "yarn@4.3.1"
