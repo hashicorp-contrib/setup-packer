@@ -26,5 +26,5 @@
     "@types/node": "20.16.5",
     "typescript": "5.6.2"
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "yarn@4.5.0"
 }
