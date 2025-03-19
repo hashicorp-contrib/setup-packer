@@ -1,6 +1,6 @@
 {
   "name": "setup-packer",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": true,
   "license": "ISC",
   "author": "Sora Morimoto <sora@morimoto.io>",
