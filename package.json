@@ -20,7 +20,7 @@
     "@vercel/ncc": "0.38.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.3",
+    "@biomejs/biome": "2.2.4",
     "@tsconfig/node20": "20.1.6",
     "@tsconfig/strictest": "2.0.5",
     "@types/node": "24.3.1",
