@@ -25,7 +25,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/exec@npm:1.1.1, @actions/exec@npm:^1.0.0, @actions/exec@npm:^1.1.1":
+"@actions/exec@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@actions/exec@npm:2.0.0"
+  dependencies:
+    "@actions/io": "npm:^2.0.0"
+  checksum: 10c0/21c7d51e8bd457e39daced34df05ba2b20365b66f3b00e838fc109a3f774d95b12a2aeeb5736d8a1ff1e50bbbea60cb6fb40b550c92d2c2e3ed74b9d6bdfc18b
+  languageName: node
+  linkType: hard
+
+"@actions/exec@npm:^1.0.0, @actions/exec@npm:^1.1.1":
   version: 1.1.1
   resolution: "@actions/exec@npm:1.1.1"
   dependencies:
@@ -69,7 +78,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/io@npm:2.0.0":
+"@actions/io@npm:2.0.0, @actions/io@npm:^2.0.0":
   version: 2.0.0
   resolution: "@actions/io@npm:2.0.0"
   checksum: 10c0/b66170cbce7e19b9560f445ebbe0af2d031857efbe759020708745384d7a94b738dc09df2636e0c3049a9172c7b293d09f8a882bf5c25cc86bd19844cef61c41
@@ -830,7 +839,7 @@ __metadata:
   resolution: "setup-packer@workspace:."
   dependencies:
     "@actions/core": "npm:2.0.0"
-    "@actions/exec": "npm:1.1.1"
+    "@actions/exec": "npm:2.0.0"
     "@actions/github": "npm:6.0.1"
     "@actions/io": "npm:2.0.0"
     "@actions/tool-cache": "npm:2.0.2"
