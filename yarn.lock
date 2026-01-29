@@ -5,7 +5,17 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@actions/core@npm:2.0.3, @actions/core@npm:^2.0.1":
+"@actions/core@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@actions/core@npm:3.0.0"
+  dependencies:
+    "@actions/exec": "npm:^3.0.0"
+    "@actions/http-client": "npm:^4.0.0"
+  checksum: 10c0/ef204ca270011308c3cdbf7da702c0b8220775ea28aec52ddba696443f11afad6e725f5534110f2ef014382ab807b695bb4dcbf307683a0fc6927b3817871f6c
+  languageName: node
+  linkType: hard
+
+"@actions/core@npm:^2.0.1":
   version: 2.0.3
   resolution: "@actions/core@npm:2.0.3"
   dependencies:
@@ -15,7 +25,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/exec@npm:3.0.0":
+"@actions/exec@npm:3.0.0, @actions/exec@npm:^3.0.0":
   version: 3.0.0
   resolution: "@actions/exec@npm:3.0.0"
   dependencies:
@@ -55,6 +65,16 @@ __metadata:
     tunnel: "npm:^0.0.6"
     undici: "npm:^6.23.0"
   checksum: 10c0/b58eedef5a76d4341edf66cba5df3acb338e420ea1ab5223c3f5d0bf7f5cfaa56d5a5578f8a0b7a9ce50ccc06a0d2bb74aad4abf8bd7b5606b032bbe0b623c92
+  languageName: node
+  linkType: hard
+
+"@actions/http-client@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@actions/http-client@npm:4.0.0"
+  dependencies:
+    tunnel: "npm:^0.0.6"
+    undici: "npm:^6.23.0"
+  checksum: 10c0/83a2bcfa50b584584e9ec9f6bcc3872aa0b325214e06dc828b17a853e25c23fec77f3262403fd14a1e4365be5d2e266638f945a5459e3a39425e7c2f1789b31e
   languageName: node
   linkType: hard
 
@@ -785,7 +805,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "setup-packer@workspace:."
   dependencies:
-    "@actions/core": "npm:2.0.3"
+    "@actions/core": "npm:3.0.0"
     "@actions/exec": "npm:3.0.0"
     "@actions/github": "npm:8.0.1"
     "@actions/io": "npm:2.0.0"
