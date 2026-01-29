@@ -33,9 +33,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/github@npm:8.0.1":
-  version: 8.0.1
-  resolution: "@actions/github@npm:8.0.1"
+"@actions/github@npm:9.0.0":
+  version: 9.0.0
+  resolution: "@actions/github@npm:9.0.0"
   dependencies:
     "@actions/http-client": "npm:^3.0.2"
     "@octokit/core": "npm:^7.0.6"
@@ -44,7 +44,7 @@ __metadata:
     "@octokit/request": "npm:^10.0.7"
     "@octokit/request-error": "npm:^7.1.0"
     undici: "npm:^6.23.0"
-  checksum: 10c0/d86f92f20874482907d3bca807476f7bb53f8d38e8afa9bf9bd6016b2e92af95a7b98300abbe7af1b9a0f3a76f1ad2d7e7236b1fa640578daadb1048c4d262f7
+  checksum: 10c0/a4f1b5ea46a93fc477dce6ab600702e5221560f63432b790dd8d0240e86c596a38a6cf4fc23868ee588c1dd18f3c0af1608e17de5f2697a0147ee20e6a538df9
   languageName: node
   linkType: hard
 
@@ -787,7 +787,7 @@ __metadata:
   dependencies:
     "@actions/core": "npm:2.0.3"
     "@actions/exec": "npm:3.0.0"
-    "@actions/github": "npm:8.0.1"
+    "@actions/github": "npm:9.0.0"
     "@actions/io": "npm:2.0.0"
     "@actions/tool-cache": "npm:3.0.1"
     "@biomejs/biome": "npm:2.3.13"
