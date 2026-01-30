@@ -16,7 +16,7 @@
     "@actions/exec": "3.0.0",
     "@actions/github": "8.0.1",
     "@actions/io": "2.0.0",
-    "@actions/tool-cache": "3.0.1",
+    "@actions/tool-cache": "4.0.0",
     "@vercel/ncc": "0.38.4"
   },
   "devDependencies": {
