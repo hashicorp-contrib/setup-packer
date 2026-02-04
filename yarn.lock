@@ -5,7 +5,7 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@actions/core@npm:2.0.3, @actions/core@npm:^2.0.1":
+"@actions/core@npm:2.0.3":
   version: 2.0.3
   resolution: "@actions/core@npm:2.0.3"
   dependencies:
@@ -15,7 +15,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/exec@npm:3.0.0":
+"@actions/core@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@actions/core@npm:3.0.0"
+  dependencies:
+    "@actions/exec": "npm:^3.0.0"
+    "@actions/http-client": "npm:^4.0.0"
+  checksum: 10c0/ef204ca270011308c3cdbf7da702c0b8220775ea28aec52ddba696443f11afad6e725f5534110f2ef014382ab807b695bb4dcbf307683a0fc6927b3817871f6c
+  languageName: node
+  linkType: hard
+
+"@actions/exec@npm:3.0.0, @actions/exec@npm:^3.0.0":
   version: 3.0.0
   resolution: "@actions/exec@npm:3.0.0"
   dependencies:
@@ -58,6 +68,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/http-client@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@actions/http-client@npm:4.0.0"
+  dependencies:
+    tunnel: "npm:^0.0.6"
+    undici: "npm:^6.23.0"
+  checksum: 10c0/83a2bcfa50b584584e9ec9f6bcc3872aa0b325214e06dc828b17a853e25c23fec77f3262403fd14a1e4365be5d2e266638f945a5459e3a39425e7c2f1789b31e
+  languageName: node
+  linkType: hard
+
 "@actions/io@npm:2.0.0, @actions/io@npm:^2.0.0":
   version: 2.0.0
   resolution: "@actions/io@npm:2.0.0"
@@ -65,23 +85,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/io@npm:^3.0.2":
+"@actions/io@npm:^3.0.0, @actions/io@npm:^3.0.2":
   version: 3.0.2
   resolution: "@actions/io@npm:3.0.2"
   checksum: 10c0/25fae323886544f965e90ab9655e3fb60816eb379c78418c4b06a5dc9da27810eb5b0bd0629146dbd5482a03e3c60a5b8713223e4f789abede23df643ddcae8c
   languageName: node
   linkType: hard
 
-"@actions/tool-cache@npm:3.0.1":
-  version: 3.0.1
-  resolution: "@actions/tool-cache@npm:3.0.1"
+"@actions/tool-cache@npm:4.0.0":
+  version: 4.0.0
+  resolution: "@actions/tool-cache@npm:4.0.0"
   dependencies:
-    "@actions/core": "npm:^2.0.1"
-    "@actions/exec": "npm:^2.0.0"
-    "@actions/http-client": "npm:^3.0.2"
-    "@actions/io": "npm:^2.0.0"
-    semver: "npm:^6.1.0"
-  checksum: 10c0/8e733bef89cfe736683f0bb60e841f2ecb92ce109cfdb6422475da2abd36502a792e80512b27a441f43223a9989fed527b8093dcfed5928246c357d595344ca6
+    "@actions/core": "npm:^3.0.0"
+    "@actions/exec": "npm:^3.0.0"
+    "@actions/http-client": "npm:^4.0.0"
+    "@actions/io": "npm:^3.0.0"
+    semver: "npm:^7.7.3"
+  checksum: 10c0/7928b42718c0277e913e1a300e29b9a0df1591504f9f17aa9ff25511f506d5661c42fea32ba70b224b8231463a82898ba092b3dc97beaa18e63577563e10bd42
   languageName: node
   linkType: hard
 
@@ -763,16 +783,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^6.1.0":
-  version: 6.3.1
-  resolution: "semver@npm:6.3.1"
-  bin:
-    semver: bin/semver.js
-  checksum: 10c0/e3d79b609071caa78bcb6ce2ad81c7966a46a7431d9d58b8800cfa9cb6a63699b3899a0e4bcce36167a284578212d9ae6942b6929ba4aa5015c079a67751d42d
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.3.5":
+"semver@npm:^7.3.5, semver@npm:^7.7.3":
   version: 7.7.3
   resolution: "semver@npm:7.7.3"
   bin:
@@ -789,7 +800,7 @@ __metadata:
     "@actions/exec": "npm:3.0.0"
     "@actions/github": "npm:8.0.1"
     "@actions/io": "npm:2.0.0"
-    "@actions/tool-cache": "npm:3.0.1"
+    "@actions/tool-cache": "npm:4.0.0"
     "@biomejs/biome": "npm:2.3.14"
     "@tsconfig/node24": "npm:24.0.4"
     "@tsconfig/strictest": "npm:2.0.8"
