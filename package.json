@@ -5,26 +5,25 @@
   "license": "ISC",
   "author": "Sora Morimoto <sora@morimoto.io>",
   "scripts": {
-    "build": "ncc build src/index.ts --license=LICENSE.txt",
+    "build": "esbuild --bundle --format=cjs --outfile=dist/index.js --platform=node --target=node24 src/index.ts",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "lint": "biome lint .",
     "type-check": "tsc"
   },
   "dependencies": {
-    "@actions/core": "2.0.3",
+    "@actions/core": "3.0.0",
     "@actions/exec": "3.0.0",
-    "@actions/github": "8.0.1",
-    "@actions/io": "2.0.0",
-    "@actions/tool-cache": "3.0.1",
-    "@vercel/ncc": "0.38.4"
+    "@actions/github": "9.0.0",
+    "@actions/io": "3.0.2",
+    "@actions/tool-cache": "4.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.14",
     "@tsconfig/node24": "24.0.4",
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "24.10.11",
+    "esbuild": "0.27.3",
     "typescript": "5.9.3"
-  },
-  "packageManager": "yarn@4.12.0"
+  }
 }
