@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "includes": ["**", "!dist"]
+    "includes": ["**", "!!dist", "!!.claude"]
   },
   "vcs": {
     "enabled": true,
@@ -15,7 +15,7 @@
       "project": "recommended"
     },
     "rules": {
-      "recommended": true
+      "preset": "recommended"
     }
   },
   "formatter": {
